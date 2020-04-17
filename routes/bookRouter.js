@@ -26,7 +26,14 @@ function routes(Book) {
   });
 
   bookRouter.route('/books/:bookId')
-    .get((req, res) => res.json(req.book))
+    .get((req, res) => {
+      const returnBook = req.book.toJSON();
+      returnBook.links = {};
+      const publisher = encodeURIComponent(req.book.publisher);
+      returnBook.links.filterByThisGenre = `http://${req.headers.host}/api/books/?publisher=${publisher}`;
+      res.json(returnBook);
+    }
+    )
     .put((req, res) => {
       const { book } = req;
       book.isbn = req.body.isbn;
