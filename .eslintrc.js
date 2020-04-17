@@ -4,5 +4,6 @@ module.exports = {
         // disable rules from base configurations
         "no-console": "off",
         "linebreak-style": "off",
+        "comma-dangle":0
     }
 };
