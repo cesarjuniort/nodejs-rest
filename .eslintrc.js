@@ -5,5 +5,6 @@ module.exports = {
         "no-console": "off",
         "linebreak-style": "off",
         "comma-dangle":0
-    }
+    },
+    "env": {"node":true, "mocha":true}
 };
